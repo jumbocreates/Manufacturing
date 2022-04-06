@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_project/Next_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,10 +30,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  //int _counter = 0;
   void _incrementCounter() {
     setState(() {
-      _counter++;
+     // _counter++;
     });
   }
 
@@ -46,19 +47,22 @@ class _MyHomePageState extends State<MyHomePage> {
           Icon(Icons.share),
         ],
       ),
-      body: Container(
-        height: double.infinity,
-        color: Colors.green,
-        child: Padding(
-          padding: const EdgeInsets.all(45),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              Text('ジャンボのFlutter初アプリ',),
-              Text('テスト'),
-            ],
+      body: Center(
+        child: ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.blue),
+              padding: MaterialStateProperty.all(EdgeInsets.all(20.0)),
+            ),
+          child: Text('次へ'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => nextPage(),
+                ),
+              );
+            },
           ),
-        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
